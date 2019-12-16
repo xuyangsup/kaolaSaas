@@ -3,7 +3,7 @@
         <v-head></v-head>
         <v-sidebar></v-sidebar>
         <!-- 添加或取消content-collapse类改变left值 -->
-        <div class="content-box" :class="{'content-collapse':collapse}">
+        <div class="content-box" :class="collapse ? 'content-collapse': 'content-not-collapse'">
             <v-tags></v-tags>
             <div class="content">
                 <transition name="move" mode="out-in">
@@ -24,7 +24,7 @@
     export default {
         data(){
             return {
-                collapse: false
+                collapse: true
             }
         },
         components:{
@@ -39,5 +39,10 @@
 </script>
 
 <style scoped>
-
+    .content-collapse{
+        left: 49px;
+    }
+    .content-not-collapse {
+        left: 180px;
+    }
 </style>
